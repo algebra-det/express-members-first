@@ -1,0 +1,23 @@
+<h1>Members</h1>
+<h4 class="text-center ">{{ title }}</h4>
+
+<h6>Members</h6>
+<ul>
+    {{#each members}}
+        <li>{{ this.id }}: {{ this.name }}</li>
+    {{/each}}
+</ul>
+
+<h3>Add New Member:</h3>
+<form action="api/members" method="post">
+    <input type="text" hidden name="name_id" value="hello" class="form-control">
+    <div class="form-group mt-4">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" required="">
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
+
+{{#if error}}
+<h2>Name Already Exist</h2>
+{{/if}}
